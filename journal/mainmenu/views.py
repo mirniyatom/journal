@@ -4,7 +4,6 @@ from django.urls import reverse
 
 
 mainmenu_dict = {
-    'main' : 'Bu yerda bosh menyu',
     'about': 'Jurnal haqida',
     'conference' : 'Konfirensiyalar haqida',
     'forauthors' : 'Avtorlar uchun',
@@ -17,20 +16,66 @@ mainmenu_dict = {
 }
 
 def index(request):
-    li_elements = ''
-    for m in mainmenu_dict:
-        redirect_path = reverse('main_menu', args=[m,])
-        li_elements += f'<li> <a href="{redirect_path}">{m.title()}</a></li>'
-    response = f"""
-            <ul style="list-style-type: none; display: flex; gap: 15px; padding: 0; margin: 0;">
-                {li_elements}
-            </ul>"""
-    return HttpResponse(response)
+    context = {
+        'title': 'Bosh menyu',
+        'content' : 'Zarracha jurnali'
+    }
+    return render(request, 'mainmenu/index.html', context)
+
+def about(request):
+    context = {
+        'title': 'Bosh menyu',
+        'content' : 'Zarracha jurnali'
+    }
+    return render(request, 'mainmenu/about.html', context)
+
+def conference(request):
+    context = {
+        'title': 'Bosh menyu',
+        'content' : 'Zarracha jurnali'
+    }
+    return render(request, 'mainmenu/conference.html', context)
+
+def forauthors(request):
+    context = {
+        'title': 'Bosh menyu',
+        'content': 'Zarracha jurnali'
+    }
+    return render(request, 'mainmenu/forauthors.html', context)
+
+def archive(request):
+    context = {
+        'title': 'Bosh menyu',
+        'content': 'Zarracha jurnali'
+    }
+    return render(request, 'mainmenu/archive.html', context)
+
+def subscription(request):
+    context = {
+        'title': 'Bosh menyu',
+        'content': 'Zarracha jurnali'
+    }
+    return render(request, 'mainmenu/subscription.html', context)
 
 
-def get_mainmenu(request, main_menu):
-    desc = mainmenu_dict.get(main_menu)
-    if desc:
-        return HttpResponse(desc)
-    else:
-        return HttpResponseNotFound(f'{main_menu} menu not found')
+def news(request):
+    context = {
+        'title': 'Bosh menyu',
+        'content': 'Zarracha jurnali'
+    }
+    return render(request, 'mainmenu/news.html', context)
+
+
+def contacts(request):
+    context = {
+        'title': 'Bosh menyu',
+        'content': 'Zarracha jurnali'
+    }
+    return render(request, 'mainmenu/contacts.html', context)
+
+def login(request):
+    context = {
+        'title': 'Bosh menyu',
+        'content': 'Zarracha jurnali'
+    }
+    return render(request, 'mainmenu/login.html', context)
