@@ -1,0 +1,13 @@
+{% extends "mainmenu/base.html" %}
+{% block title %}Obuna{% endblock %}
+{% block content %}
+<section class="section container">
+  <h2>Jurnalga obuna</h2>
+  <form id="subscribeForm" class="form-row">
+    <input required class="input" type="text" placeholder="Ism Familiya"/>
+    <input required class="input" type="email" placeholder="Email manzil"/>
+    <button class="btn brand" type="submit">Obuna bo‘lish</button>
+  </form>
+  <p id="subscribeOk" class="muted"></p>
+</section>
+{% endblock %}

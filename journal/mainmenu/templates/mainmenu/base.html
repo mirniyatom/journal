@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{% block title %}Zarracha{% endblock %}</title>
+  <meta name="description" content="Zarracha — yadro va atom fizikasi jurnali"/>
+  <link rel="icon" href="{% static 'zarracha/assets/favicon.svg' %}" type="image/svg+xml"/>
+  <link rel="stylesheet" href="{% static 'zarracha/css/styles.css' %}"/>
+</head>
+<body>
+<div class="gridfx"></div>
+
+<header class="header">
+  <div class="container nav">
+    <a class="logo" href="{% url 'mainmenu:index' %}">
+      <img src="{% static 'zarracha/assets/logo.svg' %}" alt="Zarracha logo"/>
+      <span>Zarracha</span>
+    </a>
+    <nav style="display:flex;gap:8px;flex-wrap:wrap;margin-left:auto">
+      <a href="{% url 'mainmenu:index' %}">Bosh sahifa</a>
+      <a href="{% url 'mainmenu:about' %}">Jurnal haqida</a>
+      <a href="{% url 'mainmenu:conference' %}">Konferensiyalar</a>
+      <a href="{% url 'mainmenu:forauthors' %}">Avtorlar uchun</a>
+      <a href="{% url 'mainmenu:archive' %}">Arxiv</a>
+      <a href="{% url 'mainmenu:subscription' %}">Obuna</a>
+      <a href="{% url 'mainmenu:news' %}">Yangiliklar</a>
+      <a href="{% url 'mainmenu:contacts' %}">Kontaktlar</a>
+      <a href="{% url 'mainmenu:login' %}">Kirish</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+  <div class="container row">
+    <div style="display:flex;align-items:center;gap:10px">
+      <img src="{% static 'zarracha/assets/logo.svg' %}" alt="Zarracha" style="width:22px;height:22px"/>
+      <span>© 2025 Zarracha Journal. Barcha huquqlar himoyalangan.</span>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a href="{% url 'mainmenu:forauthors' %}">Avtorlar</a>
+      <a href="{% url 'mainmenu:archive' %}">Arxiv</a>
+      <a href="{% url 'mainmenu:subscription' %}">Obuna</a>
+    </div>
+  </div>
+</footer>
+
+<script src="{% static 'zarracha/js/main.js' %}"></script>
+</body>
+</html>
